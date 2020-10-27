@@ -94,6 +94,13 @@ extern struct {
 
 extern "C" {
 extern struct {
+  int ifPyqEmb;
+} hyjemb_;
+}
+#define hyjemb hyjemb_
+
+extern "C" {
+extern struct {
   int mrlu[6];
   int rrlu[100];
 } ludatr_;
