@@ -117,14 +117,14 @@ HydjetHadronizer::HydjetHadronizer(const ParameterSet& pset, edm::ConsumesCollec
   maxEventsToPrint_ = pset.getUntrackedParameter<int>("maxEventsToPrint", 0);
   LogDebug("Events2Print") << "Number of events to be printed = " << maxEventsToPrint_;
 
-  hyjemb.ifPyqEmb=0;
+  hyjemb.ifPyqEmb = 0;
 
-  if (embedding_==1) {
+  if (embedding_ == 1) {
     cflag_ = 0;
     src_ = iC.consumes<CrossingFrame<edm::HepMCProduct> >(
         pset.getUntrackedParameter<edm::InputTag>("backgroundLabel", edm::InputTag("mix", "generatorSmeared")));
-  } else if (embedding_==2){
-    hyjemb.ifPyqEmb=1;
+  } else if (embedding_ == 2) {
+    hyjemb.ifPyqEmb = 1;
     LogWarning("EventEmbedding") << "Please note that this sample would be useful only as underlying for Pyquen!";
   }
 
@@ -210,7 +210,7 @@ bool HydjetHadronizer::generatePartonsAndHadronize() {
   Pythia6Service::InstanceWrapper guard(pythia6Service_);
 
   // generate single event
-  if (embedding_==1) {
+  if (embedding_ == 1) {
     const edm::Event& e = getEDMEvent();
     HepMC::GenVertex* genvtx = nullptr;
     const HepMC::GenEvent* inev = nullptr;

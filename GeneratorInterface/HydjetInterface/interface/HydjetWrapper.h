@@ -93,9 +93,7 @@ extern struct {
 #define hyjpar hyjpar_
 
 extern "C" {
-extern struct {
-  int ifPyqEmb;
-} hyjemb_;
+extern struct { int ifPyqEmb; } hyjemb_;
 }
 #define hyjemb hyjemb_
 

@@ -84,8 +84,8 @@ namespace gen {
     int cflag_;                           ///< centrality flag
                                           ///< =  0 fixed impact param,
                                           ///< <> 0 between bmin and bmax
-    int embedding_;                       ///< Switch for embedding mode (=1), or underlying for Pyquen 
-					  ///< with reduced by 1 of nbcol (=2)
+    int embedding_;                       ///< Switch for embedding mode (=1), or underlying for Pyquen
+                                          ///< with reduced by 1 of nbcol (=2)
     double comenergy;                     ///< collision energy
     bool doradiativeenloss_;              ///< DEFAULT = true
     bool docollisionalenloss_;            ///< DEFAULT = true
