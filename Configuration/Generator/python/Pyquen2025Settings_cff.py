@@ -1,6 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 #Default Pythia Paramters for Hydjet & Pyquen 
+#from Configuration.Generator.PythiaUESettings_cfi import *
 from Configuration.Generator.PythiaUEProQ20Settings_cfi import *
 #from Configuration.Generator.PythiaUEP11noCRSettings_cfi import *
 
@@ -58,10 +59,10 @@ qgpParametersF5362GeV = qgpParameters5362GeV.clone(qgpInitialTemperature = cms.d
                                                    hadronFreezoutTemperature = cms.double(0.125)
                                                   )
 
-qgpParameters5442GeV = qgpParameters5020GeV.clone(hadronFreezoutTemperature = cms.double(0.175))
+qgpParameters5442GeV = qgpParameters5020GeV.clone(hadronFreezoutTemperature = cms.double(0.176))
 
 qgpParameters5519GeV = qgpParameters5020GeV.clone(qgpInitialTemperature = cms.double(1.3),
-                                                  hadronFreezoutTemperature = cms.double(0.175)
+                                                  hadronFreezoutTemperature = cms.double(0.176)
                                                  )
 
 hydjetParameters200GeV = cms.PSet(sigmaInelNN = cms.double(41.6),
@@ -69,7 +70,7 @@ hydjetParameters200GeV = cms.PSet(sigmaInelNN = cms.double(41.6),
                                   nMultiplicity = cms.int32(6640),
                                   fracSoftMultiplicity = cms.double(1.),
                                   maxLongitudinalRapidity = cms.double(3.),
-                                  maxTransverseRapidity = cms.double(1.10),
+                                  maxTransverseRapidity = cms.double(1.1),
                                   rotateEventPlane = cms.bool(True),
                                   allowEmptyEvents = cms.bool(False),
                                   angularSpectrumSelector = cms.int32(1), ## angular emitted gluon spectrum
@@ -99,7 +100,7 @@ hydjetParameters5362GeV = hydjetParameters2760GeV.clone(sigmaInelNN = cms.double
 hydjetParametersF5362GeV = hydjetParameters5362GeV.clone(nMultiplicity = cms.int32(18670),
                                                          maxLongitudinalRapidity = cms.double(4.),
                                                          maxTransverseRapidity = cms.double(0.8),
-                                                         angularSpectrumSelector = cms.int32(0)
+                                                         angularSpectrumSelector = cms.int32(1)
                                                         )
 
 hydjetParameters5442GeV = hydjetParameters2760GeV.clone(sigmaInelNN = cms.double(68.4),

@@ -2,22 +2,19 @@ import FWCore.ParameterSet.Config as cms
 
 from Configuration.Generator.Pyquen2025Settings_cff import *
 from GeneratorInterface.Core.ExternalGeneratorFilter import ExternalGeneratorFilter
+import os
 
-import sys, os
-# Check if variable "energy" is defined in the main script
-if "energy" in sys.modules["__main__"].__dict__:
-    energy = sys.modules["__main__"].__dict__["energy"]
-else: energy = os.getenv("HJENERGY", "5362")
+hjenergy = os.getenv("HJENERGY", "5362")
 
 generator = ExternalGeneratorFilter(cms.EDFilter("HydjetGeneratorFilter",
-                         locals()[f"collisionParameters{energy}GeV"],   #tune CELLO
-                         locals()[f"qgpParameters{energy}GeV"],         #tune CELLO
-                         locals()[f"hydjetParameters{energy}GeV"],      #tune CELLO
+                         locals()[f"collisionParameters{hjenergy}GeV"],   #tune CELLO
+                         locals()[f"qgpParameters{hjenergy}GeV"],         #tune CELLO
+                         locals()[f"hydjetParameters{hjenergy}GeV"],      #tune CELLO
                          hydjetMode = cms.string('kHydroQJets'),
                          PythiaParameters = cms.PSet(pyquenPythiaDefaultBlock,
                                                      # Quarkonia and Weak Bosons added back upon dilepton group's request.
                                                      parameterSets = cms.vstring('pythiaUESettings',
-                                                                                 'hydjetPythiaDefault'+energy, #tune CELLO
+                                                                                 'hydjetPythiaDefault'+hjenergy, #tune CELLO
                                                                                  'myParameters',
                                                                                  'pythiaJets',
                                                                                  'pythiaPromptPhotons',
